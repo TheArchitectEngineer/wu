@@ -530,7 +530,7 @@ pub struct TabBarSettingsContent {
 }
 
 #[with_fallible_options]
-#[derive(Clone, Default, Serialize, Deserialize, JsonSchema, MergeFrom, Debug, PartialEq, Eq)]
+#[derive(Clone, Default, Serialize, Deserialize, JsonSchema, MergeFrom, Debug, PartialEq)]
 pub struct ActivityBarSettingsContent {
     /// Whether to show the activity bar on the left side of the window.
     /// The activity bar holds the buttons for the left and right dock panels,
@@ -538,6 +538,11 @@ pub struct ActivityBarSettingsContent {
     ///
     /// Default: true
     pub show: Option<bool>,
+    /// Size of the activity bar icons, in pixels. The bar grows or shrinks
+    /// to fit them.
+    ///
+    /// Default: 24
+    pub icon_size: Option<crate::PixelSetting>,
 }
 
 #[with_fallible_options]

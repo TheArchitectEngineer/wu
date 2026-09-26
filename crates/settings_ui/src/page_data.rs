@@ -3241,7 +3241,7 @@ fn search_and_files_page() -> SettingsPage {
 }
 
 fn window_and_layout_page() -> SettingsPage {
-    fn activity_bar_section() -> [SettingsPageItem; 2] {
+    fn activity_bar_section() -> [SettingsPageItem; 3] {
         [
             SettingsPageItem::SectionHeader("Activity Bar"),
             SettingsPageItem::SettingItem(SettingItem {
@@ -3252,6 +3252,24 @@ fn window_and_layout_page() -> SettingsPage {
                     pick: |settings_content| settings_content.activity_bar.as_ref()?.show.as_ref(),
                     write: |settings_content, value, _| {
                         settings_content.activity_bar.get_or_insert_default().show = value;
+                    },
+                }),
+                metadata: None,
+                files: USER,
+            }),
+            SettingsPageItem::SettingItem(SettingItem {
+                title: "Icon Size",
+                description: "Size of the activity bar icons, in pixels. The bar grows or shrinks to fit them.",
+                field: Box::new(SettingField {
+                    json_path: Some("activity_bar.icon_size"),
+                    pick: |settings_content| {
+                        settings_content.activity_bar.as_ref()?.icon_size.as_ref()
+                    },
+                    write: |settings_content, value, _| {
+                        settings_content
+                            .activity_bar
+                            .get_or_insert_default()
+                            .icon_size = value;
                     },
                 }),
                 metadata: None,

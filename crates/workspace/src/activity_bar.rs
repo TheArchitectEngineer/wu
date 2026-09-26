@@ -1,10 +1,10 @@
-use crate::Workspace;
 use crate::dock::{Dock, PanelHandle, activate_panel_button, panel_button_context_menu};
+use crate::{ActivityBarSettings, Workspace};
 use gpui::{
     Action, Anchor, App, Context, Entity, FocusHandle, Focusable as _, IntoElement, ParentElement,
     Pixels, Render, SharedString, Styled, Subscription, Task, WeakEntity, Window, px,
 };
-use settings::SettingsStore;
+use settings::{Settings as _, SettingsStore};
 use std::sync::Arc;
 use ui::{
     ButtonSize, ContextMenu, CountBadge, Icon, IconButton, IconName, IconSize, PopoverMenu,
@@ -12,8 +12,17 @@ use ui::{
 };
 use util::ResultExt as _;
 
-pub const ACTIVITY_BAR_WIDTH: Pixels = px(48.);
-const ACTIVITY_BAR_BUTTON_HEIGHT: Pixels = px(40.);
+fn icon_size(cx: &App) -> f32 {
+    ActivityBarSettings::get_global(cx).icon_size
+}
+
+fn button_height(cx: &App) -> Pixels {
+    px(icon_size(cx) + 16.)
+}
+
+fn bar_width(cx: &App) -> Pixels {
+    px(icon_size(cx) + 24.)
+}
 
 /// Entries are shown in this order by `Panel::panel_key()` until the user drags
 /// them around. Panels not listed come after, in dock order (left dock first).
@@ -50,7 +59,7 @@ impl Render for DraggedActivityBarEntry {
             .p_1()
             .rounded_md()
             .bg(cx.theme().colors().elevated_surface_background)
-            .child(Icon::new(self.icon).size(IconSize::Custom(rems_from_px(24_f32))))
+            .child(Icon::new(self.icon).size(IconSize::Custom(rems_from_px(icon_size(cx)))))
     }
 }
 
@@ -241,6 +250,8 @@ impl ActivityBar {
                 .and_then(|label| label.parse::<usize>().ok()),
         };
 
+        let icon_size = icon_size(cx);
+        let button_height = button_height(cx);
         let button = move |is_menu_open: bool| {
             let action = action.boxed_clone();
             let focus_handle = focus_handle.clone();
@@ -249,8 +260,8 @@ impl ActivityBar {
             // tooltip when panel state changes (e.g., via keyboard shortcut)
             IconButton::new((key, is_active as u64), icon)
                 .size(ButtonSize::Large)
-                .height(ACTIVITY_BAR_BUTTON_HEIGHT.into())
-                .icon_size(IconSize::Custom(rems_from_px(24_f32)))
+                .height(button_height.into())
+                .icon_size(IconSize::Custom(rems_from_px(icon_size)))
                 .toggle_state(is_active)
                 .tab_index(0isize)
                 .aria_label(icon_tooltip)
@@ -328,7 +339,7 @@ impl Render for ActivityBar {
         let bar = v_flex()
             .id("activity-bar")
             .flex_none()
-            .w(ACTIVITY_BAR_WIDTH)
+            .w(bar_width(cx))
             .h_full()
             .items_center()
             .gap_1()
@@ -342,18 +353,18 @@ impl Render for ActivityBar {
         }
         bar.children(buttons)
             .child(div().flex_1())
-            .child(self.render_settings_menu())
+            .child(self.render_settings_menu(cx))
     }
 }
 
 impl ActivityBar {
-    fn render_settings_menu(&self) -> impl IntoElement {
+    fn render_settings_menu(&self, cx: &App) -> impl IntoElement {
         PopoverMenu::new("activity-bar-settings-menu")
             .trigger_with_tooltip(
                 IconButton::new("activity-bar-settings", IconName::ActivitySettings)
                     .size(ButtonSize::Large)
-                    .height(ACTIVITY_BAR_BUTTON_HEIGHT.into())
-                    .icon_size(IconSize::Custom(rems_from_px(24_f32)))
+                    .height(button_height(cx).into())
+                    .icon_size(IconSize::Custom(rems_from_px(icon_size(cx))))
                     .tab_index(0isize)
                     .aria_label("Manage"),
                 Tooltip::text("Manage"),

@@ -735,6 +735,7 @@ impl VsCodeSettings {
             show: self
                 .read_str("workbench.activityBar.location")
                 .and_then(|location| (location == "hidden").then_some(false)),
+            icon_size: None,
         })
     }
 

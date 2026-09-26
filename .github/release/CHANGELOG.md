@@ -7,6 +7,8 @@ release body.
 
 ## Unreleased
 
+- The activity bar's icon size is now configurable in settings and via the `activity_bar.icon_size` property.
+
 ## 1.0.10 - 2026-09-26
 
 - Project search uses much less memory. Files in the results are only parsed for syntax highlighting once they're shown on screen.
