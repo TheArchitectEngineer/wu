@@ -11,7 +11,7 @@ Tested using the official Linux ARM64 releases of [Wu 1.0.10](https://github.com
 
 ## Results
 
-All values are **MiB of total process-tree PSS**, where lower is better. Totals include the editor and its running child processes, including terminal shells. Each value is the median of three independent runs' settled-memory medians. Active stages run sequentially within each suite, so later rows include memory retained from earlier actions.
+All values are **MiB of total process-tree PSS**, where lower is better. Totals include the editor and its running child processes. Each value is the median of three independent runs' settled-memory medians.
 
 ### Idle
 
