@@ -49,4 +49,4 @@ Software-rendering allocations contribute to these results. Hardware-GPU desktop
 
 ## Reproduce
 
-See the [benchmark runner](../script/memory-benchmark). It supports Linux and requires Python 3.11+, Xvfb, `xauth`, `dbus-run-session`, `xdotool`, `xwininfo`, `xclip`, ImageMagick, and a working Vulkan driver.
+See the [benchmark runner](../script/memory-benchmark-linux.py). It supports Linux and requires Python 3.11+, Xvfb, `xauth`, `dbus-run-session`, `xdotool`, `xwininfo`, `xclip`, ImageMagick, and a working Vulkan driver.

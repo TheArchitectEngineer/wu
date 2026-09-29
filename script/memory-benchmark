@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-# Measures the base physical memory footprint (what Activity Monitor's "Memory"
-# column shows) of Wu and Zed on macOS.
+# Measures the base physical memory footprint
 #
 # Each run launches the app with a fresh, throwaway --user-data-dir so nothing
 # is restored and no user state is touched, waits for it to settle on its empty
