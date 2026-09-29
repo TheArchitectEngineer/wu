@@ -37,16 +37,16 @@ The workflow performs 20 verified edit/save cycles, three targeted repository se
 
 ## How we measured
 
-- **Host:** Ubuntu 26.04 ARM64, six Neoverse-N1 virtual CPUs, 7.7 GiB RAM, and a 1280 × 800 virtual display. No hardware GPU.
-- **Isolation:** fresh profiles and project copies for active runs; only one editor runs at a time. Wu/Zed order alternated; VS Code was measured separately. Automatic updates and telemetry are disabled, and no accounts are signed in.
-- **Sampling:** Linux `/proc/PID/smaps_rollup` across each editor's process tree. Active runs wait ten seconds initially, then sample workflows at a nominal 0.5-second interval, followed by a five-second settling period and six final samples per stage. Idle runs settle for 30 seconds before ten samples at one-second intervals.
-- **Coverage:** 9 active editor sessions, 54 measured stages, and 2,435 samples, plus 18 idle sessions and 180 samples. All measured editor processes had zero swap PSS.
-- **Validation:** matching input-file hashes across fresh fixtures, saved-edit checks, successful terminal completion, per-process accounting checks, and rendered-window screenshots.
+- **Host:** Ubuntu 26.04 ARM64 VM, 6 Neoverse-N1 vCPUs, 7.7 GiB RAM, 1280 × 800 virtual display, no GPU.
+- **Isolation:** Fresh profiles and project copies for active runs. Automatic updates and telemetry disabled, no accounts signed in.
+- **Sampling:** `/proc/PID/smaps_rollup` across each editor's process tree. Active runs: 10 s warmup, ~0.5 s sampling during workflows, then 5 s settle and 6 samples per stage. Idle runs: 30 s settle, then 10 samples at 1s.
+- **Coverage:** 9 active sessions (54 stages, 2,435 samples) and 18 idle sessions (180 samples). Zero swap PSS in all measured processes.
+- **Validation:** Matching input-file hashes, saved-edit checks, terminal completion, per-process accounting checks, and window screenshots.
 
 ## Scope and limitations
 
 Software-rendering allocations contribute to these results. Hardware-GPU desktops, other operating systems, larger dependency graphs, signed-in AI features, debugging, and long editing sessions may behave differently.
 
-## Reproduce and inspect
+## Reproduce
 
 See the [benchmark runner](../script/memory-benchmark). It supports Linux and requires Python 3.11+, Xvfb, `xauth`, `dbus-run-session`, `xdotool`, `xwininfo`, `xclip`, ImageMagick, and a working Vulkan driver.
