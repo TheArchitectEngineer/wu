@@ -1,6 +1,6 @@
 # Wu website
 
-The site at [wu.farshed.me](https://wu.farshed.me). React and Tailwind, prerendered to static HTML with Bun.
+The site at [wu.dstrml.org](https://wu.dstrml.org). React and Tailwind, prerendered to static HTML with Bun.
 
 ```sh
 bun install

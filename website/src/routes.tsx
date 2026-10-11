@@ -2,6 +2,7 @@ import type { ReactElement } from 'react';
 import { Docs } from './pages/Docs';
 import { Home } from './pages/Home';
 import { NotFound } from './pages/NotFound';
+import { Support } from './pages/Support';
 
 export type ClientEntry = 'home';
 
@@ -21,6 +22,11 @@ export const routes: Route[] = [
     path: '/docs',
     element: <Docs />,
     meta: { title: 'Wu Docs', description: 'How Wu differs from Zed: what is removed, what is different, and where things live.' }
+  },
+  {
+    path: '/support',
+    element: <Support />,
+    meta: { title: 'Support Wu', description: 'Wu is free and open source. Donate on Open Collective to help keep it going.' }
   },
   { path: '/404', element: <NotFound />, meta: { title: 'Page not found · Wu' } }
 ];

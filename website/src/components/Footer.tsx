@@ -31,6 +31,7 @@ const columns = [
     links: [
       { label: 'GitHub', href: REPO_URL },
       { label: 'Report an issue', href: ISSUES_URL },
+      // { label: 'Support Wu', href: '/support/' }
     ]
   }
 ];

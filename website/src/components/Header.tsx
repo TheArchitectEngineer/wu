@@ -20,6 +20,9 @@ export function Header({ downloadHref = '/#download' }: { downloadHref?: string 
           <a className="btn btn-md btn-ghost" href="/docs/">
             Docs
           </a>
+          {/* <a className="btn btn-md btn-ghost max-sm:hidden" href="/support/">
+            Support
+          </a> */}
           <a className="btn btn-md btn-ghost max-sm:hidden" href={REPO_URL} target="_blank" rel="noopener">
             GitHub
           </a>

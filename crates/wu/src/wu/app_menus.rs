@@ -303,13 +303,13 @@ pub fn app_menus(cx: &mut App) -> Vec<Menu> {
                 MenuItem::action(
                     "Documentation",
                     super::OpenBrowser {
-                        url: "https://wu.farshed.me/docs".into(),
+                        url: "https://wu.dstrml.org/docs".into(),
                     },
                 ),
                 MenuItem::action(
                     "Wu Repository",
                     super::OpenBrowser {
-                        url: "https://github.com/farshed/wu".into(),
+                        url: "https://github.com/dstrml/wu".into(),
                     },
                 ),
             ],

@@ -31,11 +31,11 @@
 
     <content_rating type="oars-1.1" />
 
-    <url type="homepage">https://wu.farshed.me</url>
-    <url type="bugtracker">https://github.com/farshed/wu/issues</url>
-    <url type="help">https://wu.farshed.me/docs</url>
-    <url type="contact">https://github.com/farshed/wu/issues</url>
-    <url type="vcs-browser">https://github.com/farshed/wu</url>
+    <url type="homepage">https://wu.dstrml.org</url>
+    <url type="bugtracker">https://github.com/dstrml/wu/issues</url>
+    <url type="help">https://wu.dstrml.org/docs</url>
+    <url type="contact">https://github.com/dstrml/wu/issues</url>
+    <url type="vcs-browser">https://github.com/dstrml/wu</url>
 
     <supports>
         <internet>offline-only</internet>
@@ -49,7 +49,7 @@
     <screenshots>
         <screenshot type="default">
             <caption>Wu with a project open</caption>
-            <image>https://wu.farshed.me/screenshot.png</image>
+            <image>https://wu.dstrml.org/screenshot.png</image>
         </screenshot>
     </screenshots>
 

@@ -1,12 +1,12 @@
 ## Install
 
-All releases are available [here](https://github.com/farshed/wu/releases/latest).
+All releases are available [here](https://github.com/dstrml/wu/releases/latest).
 
 ### macOS (Apple Silicon and Intel)
 
 1. Download the installer for your Mac, open it, and drag Wu into your Applications folder.
-    - [**Apple Silicon**](https://github.com/farshed/wu/releases/latest/download/Wu-aarch64.dmg) (M1 and later)
-    - [**Intel**](https://github.com/farshed/wu/releases/latest/download/Wu-x86_64.dmg)
+    - [**Apple Silicon**](https://github.com/dstrml/wu/releases/latest/download/Wu-aarch64.dmg) (M1 and later)
+    - [**Intel**](https://github.com/dstrml/wu/releases/latest/download/Wu-x86_64.dmg)
 
    Wu is not signed with an Apple Developer certificate yet, so macOS will block it the first time you open it.
 2. Open Terminal and run:
@@ -39,8 +39,8 @@ export PATH="$HOME/.local/bin:$PATH"
 ### Linux (x86-64 and AArch64)
 
 1. Download the tarball for your platform.
-    - [**Linux x86-64**](https://github.com/farshed/wu/releases/latest/download/wu-linux-x86_64.tar.gz)
-    - [**Linux AArch64**](https://github.com/farshed/wu/releases/latest/download/wu-linux-aarch64.tar.gz)
+    - [**Linux x86-64**](https://github.com/dstrml/wu/releases/latest/download/wu-linux-x86_64.tar.gz)
+    - [**Linux AArch64**](https://github.com/dstrml/wu/releases/latest/download/wu-linux-aarch64.tar.gz)
 
 2. Unpack its contents into `~/.local`:
 
@@ -53,4 +53,4 @@ Make sure `~/.local/bin` is on your `PATH`, then run `wu`.
 
 ### Windows (x86-64)
 
-Download the [installer](https://github.com/farshed/wu/releases/latest/download/Wu-x86_64.exe) and click to run. The installer isn't code-signed, so Windows SmartScreen may warn you. Click **More info**, then **Run anyway**.
+Download the [installer](https://github.com/dstrml/wu/releases/latest/download/Wu-x86_64.exe) and click to run. The installer isn't code-signed, so Windows SmartScreen may warn you. Click **More info**, then **Run anyway**.

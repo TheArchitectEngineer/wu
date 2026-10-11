@@ -99,7 +99,7 @@ use wu_actions::{
     OpenWuUrl, Quit,
 };
 
-const DOCS_URL: &str = "https://wu.farshed.me/docs";
+const DOCS_URL: &str = "https://wu.dstrml.org/docs";
 
 actions!(
     wu,
