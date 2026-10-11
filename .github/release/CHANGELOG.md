@@ -8,7 +8,8 @@ release body.
 ## Unreleased
 
 - Added "Pull From" to the Git sync menu, so you can pull any branch from any remote.
-- Fixed the Git sync button spinning forever after closing the remote picker from "Push To" or "Fetch From".
+- Fixed the Git sync button spinning forever after closing the remote picker.
+- Update the source address for auto-updates.
 
 ## 1.1.5 - 2026-10-09
 
